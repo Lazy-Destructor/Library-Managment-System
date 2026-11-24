@@ -1,2 +1,2 @@
-# Micro-Project-I
+# Library Management System
 Micro Project of College
