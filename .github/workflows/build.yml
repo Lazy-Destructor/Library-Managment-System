@@ -33,9 +33,13 @@ jobs:
           host: ${{ runner.os == 'Windows' && 'windows' || 'linux' }}
           target: desktop
           arch: ${{ matrix.qt_arch }}
-          modules: qtbase
 
-      - name: Configure
+      - name: Configure (Windows)
+        if: runner.os == 'Windows'
+        run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release
+
+      - name: Configure (Linux)
+        if: runner.os == 'Linux'
         run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 
       - name: Build
