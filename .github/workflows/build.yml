@@ -33,7 +33,6 @@ jobs:
           host: ${{ runner.os == 'Windows' && 'windows' || 'linux' }}
           target: desktop
           arch: ${{ matrix.qt_arch }}
-          modules: qtbase
 
       - name: Configure
         run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
